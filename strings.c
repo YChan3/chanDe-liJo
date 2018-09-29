@@ -3,11 +3,13 @@
 #include <string.h>
 
 int my_strlen( char *source ){
+    
     int counter = 0;
     while(*source++){
         counter++;
     }
     return counter;
+
 }
 
 // char *mystrcpy( char *dest, char *source ){
@@ -28,6 +30,19 @@ char * my_strncat( char *dest, char *source, int n){
     dest[strlen(dest) + n + 1] = 0;
 
     return dest;
+
+}
+
+int my_strcmp( char *s1, char *s2 ){
+
+    if(s1 == s2){
+        return 0;
+    } else if (s1 > s2){
+        return 1;
+    } else {
+        return -1;
+    }
+
 }
 
 int main(){
@@ -41,16 +56,46 @@ int main(){
     printf("s3: [%s]\n", c);
     printf("\n");
     
+    printf("---------------------------\n");
     printf("Testing strlen(s3):\n");
     printf("[standard]: [%ld]\n", strlen(c));
     printf("[mine]: [%d]\n", my_strlen(c));
     printf("\n");
+    printf("Testing strlen(s3):\n");
+    printf("[standard]: [%ld]\n", strlen(a));
+    printf("[mine]: [%d]\n", my_strlen(a));
+    printf("---------------------------\n");
+    printf("\n");
 
+    printf("---------------------------\n");
     printf("Testing strncat(s1, s3, 3):\n");
     printf("[standard]: [%s]\n", strncat(a, c, 3));
     strcpy(a, "cat"); // reset s1
     printf("[mine]: [%s]\n", my_strncat(a, c, 3));
+    strcpy(a, "cat"); // reset s1
     printf("\n");
+    printf("Testing strncat(s1, s2, 2):\n");
+    printf("[standard]: [%s]\n", strncat(a, b, 2));
+    strcpy(a, "cat"); // reset s1
+    printf("[mine]: [%s]\n", my_strncat(a, b, 2));
+    strcpy(a, "cat"); // reset s1
+    printf("---------------------------\n");
+    printf("\n");
+
+    printf("---------------------------\n");
+    printf("Testing strncmp(s1, s2):\n");
+    printf("[standard]: [%d]\n", strcmp(a, b));
+    printf("[mine]: [%d]\n", strcmp(a, b));
+    printf("\n");
+    printf("Testing strncmp(s2, s3):\n");
+    printf("[standard]: [%d]\n", strcmp(b, c));
+    printf("[mine]: [%d]\n", strcmp(b, c));
+    printf("\n");
+    printf("Testing strncmp(\"hi\", \"hi\"):\n");
+    printf("[standard]: [%d]\n", strcmp("hi", "hi"));
+    printf("[mine]: [%d]\n", strcmp("hi", "hi"));
+    printf("\n");
+    printf("---------------------------\n");
 
 
     return 0;
