@@ -3,11 +3,11 @@
 #include <string.h>
 
 int my_strlen( char *source ){
-	int counter = 0;
-	while(*source++){
-		counter++;
-	}
-	return counter;
+    int counter = 0;
+    while(*source++){
+        counter++;
+    }
+    return counter;
 }
 
 // char *mystrcpy( char *dest, char *source ){
@@ -39,18 +39,18 @@ int main(){
     printf("s1: [%s]\n", a);
     printf("s2: [%s]\n", b);
     printf("s3: [%s]\n", c);
-	printf("\n");
+    printf("\n");
     
     printf("Testing strlen(s3):\n");
     printf("[standard]: [%ld]\n", strlen(c));
     printf("[mine]: [%d]\n", my_strlen(c));
-	printf("\n");
+    printf("\n");
 
-	printf("Testing strncat(s1, s3, 3):\n");
+    printf("Testing strncat(s1, s3, 3):\n");
     printf("[standard]: [%s]\n", strncat(a, c, 3));
-	strcpy(a, "cat"); // reset s1
+    strcpy(a, "cat"); // reset s1
     printf("[mine]: [%s]\n", my_strncat(a, c, 3));
-	printf("\n");
+    printf("\n");
 
 
     return 0;
