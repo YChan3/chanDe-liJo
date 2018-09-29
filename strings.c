@@ -35,20 +35,14 @@ char * my_strncat( char *dest, char *source, int n){
 
 int my_strcmp( char *s1, char *s2 ){
 
-    if(s1 == s2){
-        return 0;
-    }
-
     int i = 0;
-    while(s1[i] && s2[i]){
-        if(s1[i] > s2[i]){
-            return 1;
-        } else {
-            return -1;
+    while(s1[i]){
+        if(s1[i] != s2[i]){
+            return s1[i] - s2[i];
         }
         i++;
     }
-    return 0;
+    return s1[i] - s2[i];
 
 }
 
@@ -90,17 +84,17 @@ int main(){
     printf("\n");
 
     printf("---------------------------\n");
-    printf("Testing strncmp(s1, s2):\n");
-    printf("[standard]: [%d]\n", strcmp(a, b));
-    printf("[mine]: [%d]\n", my_strcmp(a, b));
+    printf("Testing strncmp(\"ab\", \"abc\"):\n");
+    printf("[standard]: [%d]\n", strcmp("ab", "abc"));
+    printf("[mine]: [%d]\n", my_strcmp("ab", "abc"));
     printf("\n");
-    printf("Testing strncmp(s2, s3):\n");
-    printf("[standard]: [%d]\n", strcmp(b, c));
-    printf("[mine]: [%d]\n", my_strcmp(b, c));
+    printf("Testing strncmp(\"abc\", \"ab\"):\n");
+    printf("[standard]: [%d]\n", strcmp("abc", "ab"));
+    printf("[mine]: [%d]\n", my_strcmp("abc", "ab"));
     printf("\n");
-    printf("Testing strncmp(\"hi\", \"hi\"):\n");
-    printf("[standard]: [%d]\n", strcmp("hi", "hi"));
-    printf("[mine]: [%d]\n", my_strcmp("hi", "hi"));
+    printf("Testing strncmp(\"abc\", \"abc\"):\n");
+    printf("[standard]: [%d]\n", strcmp("abc", "abc"));
+    printf("[mine]: [%d]\n", my_strcmp("abc", "abc"));
     printf("\n");
     printf("---------------------------\n");
 
