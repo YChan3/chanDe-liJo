@@ -2,24 +2,47 @@
 #include <string.h>
 
 int mystrlen( char *source ){
-    int counter = 0;
-    while(*source++){
-        counter++;
-    }
-    return counter;
+	int counter = 0;
+	while(*source++){
+		counter++;
+	}
+	return counter;
 }
 
 char *mystrncat(char *dest, char *source, int n){
-    int enddest = mystrlen(dest);
-    int counter = 0;
-    while(counter <  n){
-    enddest += counter;
-    dest[enddest] = source[counter];
-    printf("counter:%d, dest:%x \n", counter, dest[enddest]);
-    counter++;
-    }
-    return dest;
+	int enddest = mystrlen(dest);
+	int counter = 0;
+	while(counter <  n){
+		dest[enddest++] = source[counter++];
+	}
+	return dest;
 }
+
+char *mystrcat(char *dest, char *source){
+	return mystrncat(dest, source, mystrlen(source));
+}
+
+char *mystrncpy(char *dest, char *source, int n){
+	int counter = 0;
+	while(counter <  n){
+		dest[counter++] = source[counter];
+	}
+	return dest;
+}
+
+char *mystrcpy(char *dest, char *source){
+    mystrncpy(dest, source, mystrlen(source))
+}
+
+//char *mystrchr( char *s, char c ){
+//	while(*s){
+//		printf("%d\n", c);
+//		if(*s++ == c){
+//			return s;
+//		}
+//	}
+//	return NULL;
+//} //DOES NOT WORK IDK HOW TO FIX
 
 int main(){
     char str1[50] = "doggo";
