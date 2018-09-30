@@ -15,6 +15,7 @@ char *mystrncat(char *dest, char *source, int n){
 	while(counter <  n){
 		dest[enddest++] = source[counter++];
 	}
+	dest[strlen(dest)] = 0;
 	return dest;
 }
 
@@ -27,6 +28,7 @@ char *mystrncpy(char *dest, char *source, int n){
 	while(counter <  n){
 		dest[counter++] = source[counter];
 	}
+	dest[strlen(dest)] = 0;
 	return dest;
 }
 
